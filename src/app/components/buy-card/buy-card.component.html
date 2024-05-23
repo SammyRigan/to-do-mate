@@ -1,0 +1,17 @@
+<div class="task" [ngClass]="{'done': toBuy.status === 'bought'}" (click)="update()">
+  <div class="up">
+    <span>
+      <ion-icon name="checkmark"></ion-icon>
+    </span>
+    <h4>{{ toBuy.title }}</h4>
+    <div class="px">
+      <small *ngIf="toBuy.amount">GHS {{ toBuy.amount }}</small>
+    </div>
+  </div>
+  <div class="dets">
+    <small *ngIf="!toBuy.boughtDate">{{ toBuy.date | date:'mediumDate' }} at {{ toBuy.date | date:'shortTime' }}</small>
+    <small *ngIf="toBuy.boughtDate">{{ toBuy.boughtDate | date:'mediumDate' }} at {{ toBuy.boughtDate | date:'shortTime' }}</small>
+    <small style="opacity: 1; margin-left: 10px; font-weight: 500; color: #f7ac62;" *ngIf="toBuy.listId">{{ list?.title }}</small>
+    <ion-icon name="refresh-circle" style="margin-left: 10px;" *ngIf="list?.recurring"></ion-icon>
+  </div>
+</div>

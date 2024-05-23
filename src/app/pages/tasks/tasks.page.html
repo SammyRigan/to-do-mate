@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <div class="head pad">
+    <h4>Hello Samuel!<br>Lets get started</h4>
+    <ion-button fill="outline" class="nopads" [routerLink]="['/lists']">
+      <!-- <ion-icon name="calendar"></ion-icon> -->
+      <ion-icon name="list"></ion-icon>
+    </ion-button>
+  </div>
+
+  <ion-segment [value]="view" (ionChange)="view = $event.target.value.toString()">
+    <ion-segment-button value="todo">
+      <ion-label>To-Do</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="tobuy">
+      <ion-label>To-Buy</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="wrap pad" *ngIf="view === 'todo'">
+    <app-task-card *ngFor="let task of tasks" [task]="task"></app-task-card>
+  </div>
+  <div class="wrap pad" *ngIf="view === 'tobuy'">
+    <app-buy-card *ngFor="let toBuy of buys" [toBuy]="toBuy"></app-buy-card>
+  </div>
+
+</ion-content>
+
+<ion-fab mode="ios">
+  <ion-fab-button (click)="view === 'todo' ? addTask() : addBuy()"><ion-icon name="add"></ion-icon></ion-fab-button>
+</ion-fab>

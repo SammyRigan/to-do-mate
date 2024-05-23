@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true">
+  <ion-button class="head icon" (click)="goBack()">
+    <span><ion-icon name="arrow-back"></ion-icon><h4>Lists</h4></span>
+  </ion-button>
+  <ion-segment [value]="view" (ionChange)="view = $event.target.value.toString()">
+    <ion-segment-button value="todo">
+      <ion-label>To-Do Lists</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="tobuy">
+      <ion-label>To-Buy Lists</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  
+  <div class="wrap pad" *ngIf="view === 'todo'">
+    <app-list-card *ngFor="let list of taskLists" [list]="list" [view]="'todo'"></app-list-card>
+  </div>
+  <div class="wrap pad" *ngIf="view === 'tobuy'">
+    <app-list-card *ngFor="let list of buyLists" [list]="list" [view]="'tobuy'"></app-list-card>
+  </div>
+</ion-content>
+
+<ion-fab mode="ios">
+  <ion-fab-button (click)="addList()"><ion-icon name="add"></ion-icon></ion-fab-button>
+</ion-fab>

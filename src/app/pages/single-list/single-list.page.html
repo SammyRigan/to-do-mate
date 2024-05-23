@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+  <ion-button class="head icon">
+    <span><ion-icon name="arrow-back" (click)="goBack()"></ion-icon><h4>{{ list?.title }}</h4><ion-icon name="ellipsis-vertical"></ion-icon></span>
+  </ion-button>
+  <div class="">
+    <div class="pad">
+      <div class="banner">
+        <small>Balance</small>
+        <h4>GHS 3,045.00</h4>
+        <div class="range">
+          <div class="mm">
+            <div class="nn" [ngStyle]="{'width': '30%'}"></div>
+          </div>
+          <div class="ans">
+            <small>spent GHS 1.4k</small>
+            <small>from GHS 4.8k</small>
+          </div>
+        </div>
+        <ion-button class="nopads" size="small">
+          Edit Budget
+          <!-- <ion-icon name="pencil"></ion-icon> -->
+        </ion-button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap pad" *ngIf="view === 'todo'">
+    <app-task-card *ngFor="let task of items" [task]="task"></app-task-card>
+  </div>
+  <div class="wrap pad" *ngIf="view === 'tobuy'">
+    <app-buy-card *ngFor="let toBuy of items" [toBuy]="toBuy"></app-buy-card>
+  </div>
+</ion-content>
+
+<ion-fab mode="ios">
+  <ion-fab-button><ion-icon name="add"></ion-icon></ion-fab-button>
+</ion-fab>

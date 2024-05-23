@@ -1,0 +1,11 @@
+<div class="card-wrap">
+  <div class="stap">
+    <h4>{{ list.title }}</h4>
+    <span>
+      <small>{{ list.itemsNum }} item{{ list.itemsNum === 1 ? '' : 's' }}</small>
+      <small *ngIf="list.totalAmount" class="amt">GHS {{ list.totalAmount }}</small>
+      <small *ngIf="list.recurringPeriod" class="pd" [ngStyle]="{'color': list.recurringPeriod === 'daily' ? '#3FB35C' : list.recurringPeriod === 'weekly' ? '#0077FF' : list.recurringPeriod === 'monthly' ? '#f7ac62' : '#FF0000'}">{{ list.recurringPeriod }}</small>
+    </span>
+  </div>
+  <ion-button class="nopads" size="small" shape="round" (click)="more()"><ion-icon name="ellipsis-horizontal"></ion-icon></ion-button>
+</div>

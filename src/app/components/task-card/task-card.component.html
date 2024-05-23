@@ -1,0 +1,15 @@
+<div class="task" [ngClass]="{'done': task.status === 'completed'}">
+  <div class="up" (click)="update()">
+    <span>
+      <ion-icon name="checkmark"></ion-icon>
+    </span>
+    <h4>{{ task.title }}</h4>
+  </div>
+  <div class="dets">
+    <small *ngIf="!task.completedDate">{{ task.date | date:'mediumDate' }} at {{ task.date | date:'shortTime' }}</small>
+    <small *ngIf="task.completedDate">{{ task.completedDate | date:'mediumDate' }} at {{ task.completedDate | date:'shortTime' }}</small>
+    <small style="opacity: 1; margin-left: 10px; font-weight: 500; color: #f7ac62;" *ngIf="task.listId">{{ list?.title }}</small>
+    <small style="opacity: 1; margin-left: 10px;" [ngStyle]="{'color': task.priorityLevel === 'Low' ? '#3FB35C' : task.priorityLevel === 'Medium' ? '#0077FF' : '#FF0000'}">{{ task.priorityLevel }}</small>
+    <ion-icon name="refresh-circle" style="margin-left: 10px;" *ngIf="list?.recurring"></ion-icon>
+  </div>
+</div>

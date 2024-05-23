@@ -1,0 +1,28 @@
+<div class="wrap">
+  <div class="head pad">
+    <ion-button fill="outline" class="nopads" (click)="close()"><ion-icon name="arrow-back"></ion-icon></ion-button>
+    <h4>Add Item</h4>
+  </div>
+
+  <div class="form pad">
+    <div class="input" [ngClass]="{'error': !toBuy.title && actioned}">
+      <ion-textarea name="title" [(ngModel)]="toBuy.title" placeholder="Item Title" autoGrow></ion-textarea>
+    </div>
+    <small>{{ date | date:'mediumDate' }} at {{ date | date:'shortTime' }}</small>
+
+    <div class="input" style="margin-top: 20px;">
+      <ion-input name="amount" placeholder="Item Amount" label="GHS" labelPlacement="stacked" [(ngModel)]="toBuy.amount" type="number"></ion-input>
+    </div>
+
+    <div class="input" style="margin-top: 20px;">
+      <ion-select name="levels" [placeholder]="isLoading ? 'Loading lists...' : !isLoading && lists.length === 0 ? 'No Lists created' : 'Lists'" label="Lists" [(ngModel)]="toBuy.listId" [disabled]="isLoading || lists.length === 0">
+        <ion-select-option *ngFor="let list of lists" [value]="list.id">{{ list.title }}</ion-select-option>
+      </ion-select>
+      <ion-icon name="chevron-down"></ion-icon>
+    </div>
+  </div>
+
+  <div class="but pad">
+    <ion-button (click)="actioned = true; toBuy.id ? update() : save()">Save Item</ion-button>
+  </div>
+</div>

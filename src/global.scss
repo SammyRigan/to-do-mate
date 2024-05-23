@@ -24,3 +24,77 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+/* Google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+
+// @import "/node_modules/bootstrap/scss/bootstrap";
+
+// $primary: #0C7C3F;
+// $secondary: #A01C4E;
+// $tetiary: #bbbbbb;
+// $accent: #E5D326;
+
+* {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, p, small {
+  display: block;
+  margin: 0;
+}
+
+.pad {
+  padding: 0 20px;
+}
+
+ion-button {
+    margin: 0;
+    text-transform: capitalize;
+    display: block;
+    --border-radius: 10px;
+    --box-shadow: none;
+}
+
+ion-button.nopads {
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+}
+
+ion-select {
+    display: block;
+}
+
+ion-select::part(icon) {
+    display: none !important;
+}
+
+ion-select::part(label) {
+    display: none;
+}
+
+ion-segment-button {
+    font-size: 12px;
+    text-transform: capitalize;
+    border-bottom: solid 1px #00000020;
+}
+
+
+ion-segment-button.segment-button-checked {
+    // --background: #000000 !important;
+    color: #000000;
+    --color-checked: #000000;
+}
+
+ion-fab {
+    bottom: 50px;
+    right: 20px;
+}
+
+ion-action-sheet.more {
+    --button-color: #000000 !important;
+}

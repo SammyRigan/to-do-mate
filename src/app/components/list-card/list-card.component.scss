@@ -1,0 +1,40 @@
+.card-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+h4 {
+    font-size: 15px;
+}
+
+span {
+    display: flex;
+    align-items: center;
+}
+
+small {
+    font-size: 12px;
+    font-weight: 400;
+    margin-right: 10px;
+    opacity: .5;
+
+    &.amt {
+        font-weight: 500;
+        opacity: 1;
+    }
+
+    &.pd {
+        text-transform: capitalize;
+        opacity: 1;
+    }
+}
+
+ion-button {
+    width: 20px;
+    height: 20px;
+    min-height: 20px;
+    --background: #000000;
+    --border-radius: 50%;
+    color: #ffffff;
+    font-size: 8px;
+}
